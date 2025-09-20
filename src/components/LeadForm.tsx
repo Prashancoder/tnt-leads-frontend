@@ -74,7 +74,7 @@ const LeadForm = ({
     setIsSubmitting(true);
 
     try {
-      await apiPost("/api/leads", {
+await apiPost("https://tnt-leads-backend.onrender.com/api/leads", {
         ...formData,
         source: "website-landing",
       });
