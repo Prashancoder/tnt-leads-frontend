@@ -9,6 +9,11 @@ const Hero = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToProjects = () => {
+    const element = document.getElementById('projects');
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section 
       id="home" 
@@ -30,7 +35,6 @@ const Hero = () => {
                   <Star key={i} size={20} className="text-secondary fill-secondary" />
                 ))}
               </div>
-
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
@@ -52,13 +56,14 @@ const Hero = () => {
                 Get Free Consultation
                 <ArrowRight className="ml-2" size={20} />
               </Button>
-  <Button 
-    size="lg"
-    onClick={scrollToContact}
-    className="bg-secondary text-secondary-foreground hover:bg-secondary-light transition-smooth text-lg px-8 py-6"
-  >
-    View Properties
-  </Button>
+
+              <Button 
+                size="lg"
+                onClick={scrollToProjects}
+                className="bg-secondary text-secondary-foreground hover:bg-secondary-light transition-smooth text-lg px-8 py-6"
+              >
+                View Properties
+              </Button>
             </div>
 
             {/* Stats */}
