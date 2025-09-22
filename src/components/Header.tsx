@@ -120,7 +120,7 @@ const Header = () => {
                   asChild
                   className="bg-gradient-primary hover:opacity-90 transition-smooth w-full"
                 >
-                  <a href="tel:917217806549">Call Now</a>
+                  <a href="tel:91918088113333">Call Now</a>
                 </Button>
               </nav>
             </div>
