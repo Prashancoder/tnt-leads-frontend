@@ -20,45 +20,46 @@ interface Project {
 const projects: Project[] = [
   { 
     id: 1, 
-    title: 'Luxury Villa', 
+    title: 'Residences', 
     image: Project1, 
-    description: 'Modern villa with pool and landscaped garden.',
-    price: '₹2.5 Cr onwards',
+    description: 'Modern residences with pool and landscaped garden.',
+    price: '₹2.75 Cr onwards',
     location: 'Gurgaon, Sector 62',
-    size: '3500 sq.ft',
+    size: '4BHK RESIDENCES',
     status: 'Ready to Move'
   },
   { 
     id: 2, 
-    title: 'Apartment Complex', 
+    title: 'Apartment', 
     image: Project2, 
     description: 'High-rise apartments in the city center with world-class amenities.',
-    price: '₹75 L onwards',
+    price: '₹2.51 Cr onwards',
     location: 'Noida, Sector 150',
-    size: '1200 sq.ft',
+    size: '3BHK+ & 4BHK',
     status: 'Under Construction'
   },
   { 
     id: 3, 
-    title: 'Office Space', 
+    title: 'Rental Space', 
     image: Project3, 
-    description: 'Premium commercial office space designed for modern businesses.',
-    price: '₹1.2 Cr onwards',
+    description: 'Premium commercial rental space designed for modern businesses.',
+    price: '₹60 LAKHS onwards',
     location: 'Cyber City, Gurugram',
     size: '2500 sq.ft',
     status: 'Ready to Move'
   },
   { 
     id: 4, 
-    title: 'Retail Store', 
+    title: 'Fully Furnished Apartments', 
     image: Project4, 
-    description: 'Prime location retail property with high footfall.',
-    price: '₹90 L onwards',
-    location: 'Connaught Place, Delhi',
-    size: '1500 sq.ft',
+    description: 'Fully furnished apartments available in prime locations.',
+    price: '₹67.5 LAKHS onwards',
+    location: 'Sector-93, Gurgaon',
+    size: '1 BHK',
     status: 'Available'
   },
 ];
+
 
 const Projects = () => {
   const scrollToSection = (id: string) => {
@@ -100,7 +101,6 @@ const Projects = () => {
                     <p><span className="font-semibold text-green-800">Price:</span> {project.price}</p>
                     <p><span className="font-semibold text-green-800">Location:</span> {project.location}</p>
                     <p><span className="font-semibold text-green-800">Size:</span> {project.size}</p>
-                    <p><span className="font-semibold text-green-800">Status:</span> {project.status}</p>
                   </div>
                 </div>
                 <Button
