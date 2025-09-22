@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import tntLogo from '@/assets/logo.webp';
 
@@ -76,11 +76,51 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="flex gap-3 mt-2">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <Button key={i} size="sm" variant="ghost" className="hover:bg-white/10 p-2 rounded-full">
-                  <Icon size={16} />
+              <a
+                href="https://www.linkedin.com/company/tntrealtyin/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" variant="ghost" className="hover:bg-white/10 p-2 rounded-full">
+                  <Linkedin size={16} />
                 </Button>
-              ))}
+              </a>
+              <a
+                href="https://www.youtube.com/c/TandTRealty"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" variant="ghost" className="hover:bg-white/10 p-2 rounded-full">
+                  <Youtube size={16} />
+                </Button>
+              </a>
+              <a
+                href="https://x.com/tntrealtyin"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" variant="ghost" className="hover:bg-white/10 p-2 rounded-full">
+                  <Twitter size={16} />
+                </Button>
+              </a>
+              <a
+                href="https://www.facebook.com/tntrealtyin"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" variant="ghost" className="hover:bg-white/10 p-2 rounded-full">
+                  <Facebook size={16} />
+                </Button>
+              </a>
+              <a
+                href="https://www.instagram.com/tntrealtyin/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" variant="ghost" className="hover:bg-white/10 p-2 rounded-full">
+                  <Instagram size={16} />
+                </Button>
+              </a>
             </div>
           </div>
         </div>
