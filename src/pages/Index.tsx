@@ -20,7 +20,7 @@ const Index = () => {
     }, 5000);
 
     const onScroll = () => {
-      if (window.scrollY > 200 && window.innerWidth >= 768) {
+      if (window.scrollY > 800 && window.innerWidth >= 768) {
         setOpen(true);
         window.removeEventListener('scroll', onScroll);
       }
@@ -40,7 +40,7 @@ const Index = () => {
       <About />
       <Services />
       <Associations />
-            <Projects />   {/* ✅ New Projects Section */}
+      <Projects />   {/* ✅ New Projects Section */}
       <LeadForm />
       {/* Transparent side sheet lead form */}
       <Sheet open={open} onOpenChange={setOpen}>
