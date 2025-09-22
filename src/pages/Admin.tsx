@@ -19,24 +19,27 @@ const Admin = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Client-side fetch only
+    let isMounted = true;
+
     const fetchLeads = async () => {
       try {
-        const res = await fetch(
-          "https://tnt-leads-backend.onrender.com/api/leads"
-        );
+        const res = await fetch("https://tnt-leads-backend.onrender.com/api/leads");
         if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
         const data: Lead[] = await res.json();
-        setLeads(data);
+        if (isMounted) setLeads(data);
       } catch (err) {
         console.error(err);
-        setError("Failed to load leads");
+        if (isMounted) setError('Failed to load leads');
       } finally {
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
     };
 
     fetchLeads();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
@@ -50,42 +53,28 @@ const Admin = () => {
 
         {!loading && !error && (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {leads.length === 0 && (
+            {leads.length > 0 ? (
+              leads.map((lead) => (
+                <Card key={lead._id} className="shadow-card">
+                  <CardHeader>
+                    <CardTitle className="flex justify-between items-center">
+                      <span>{lead.name}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {new Date(lead.createdAt).toLocaleString()}
+                      </span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-1 text-sm">
+                    <div><span className="font-medium">Phone:</span> {lead.phone}</div>
+                    {lead.email && <div><span className="font-medium">Email:</span> {lead.email}</div>}
+                    {lead.source && <div><span className="font-medium">Source:</span> {lead.source}</div>}
+                    {lead.message && <div className="pt-2"><span className="font-medium">Message:</span> {lead.message}</div>}
+                  </CardContent>
+                </Card>
+              ))
+            ) : (
               <div className="text-muted-foreground">No leads yet.</div>
             )}
-
-            {leads.map((lead) => (
-              <Card key={lead._id} className="shadow-card">
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-center">
-                    <span>{lead.name}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {new Date(lead.createdAt).toLocaleString()}
-                    </span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-1 text-sm">
-                  <div>
-                    <span className="font-medium">Phone:</span> {lead.phone}
-                  </div>
-                  {lead.email && (
-                    <div>
-                      <span className="font-medium">Email:</span> {lead.email}
-                    </div>
-                  )}
-                  {lead.source && (
-                    <div>
-                      <span className="font-medium">Source:</span> {lead.source}
-                    </div>
-                  )}
-                  {lead.message && (
-                    <div className="pt-2">
-                      <span className="font-medium">Message:</span> {lead.message}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
           </div>
         )}
       </main>
