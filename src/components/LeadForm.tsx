@@ -18,7 +18,6 @@ import {
   MessageSquare,
   CheckCircle,
 } from "lucide-react";
-import { apiPost } from "@/lib/api";
 import { cn } from "@/lib/utils";
 
 interface FormData {
@@ -52,20 +51,12 @@ const LeadForm = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Submitting:", formData);
 
-    if (!formData.name.trim()) {
+    if (!formData.name.trim() || !formData.phone.trim()) {
       toast({
-        title: "Name is required",
-        description: "Please enter your full name",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (!formData.phone.trim()) {
-      toast({
-        title: "Phone number is required",
-        description: "Please enter your phone number",
+        title: "Required fields missing",
+        description: "Please enter your name and phone number",
         variant: "destructive",
       });
       return;
@@ -74,10 +65,14 @@ const LeadForm = ({
     setIsSubmitting(true);
 
     try {
-await apiPost("https://tnt-leads-backend.onrender.com/api/leads", {
-        ...formData,
-        source: "website-landing",
+      const res = await fetch("https://tnt-leads-backend.onrender.com/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, source: "website-landing" }),
       });
+
+      const data = await res.json();
+      console.log("API response:", data);
 
       toast({
         title: "Thank you for your interest! 🎉",
@@ -85,8 +80,10 @@ await apiPost("https://tnt-leads-backend.onrender.com/api/leads", {
       });
 
       setFormData({ name: "", email: "", phone: "", message: "" });
+
       if (onSubmitted) onSubmitted();
-    } catch {
+    } catch (err) {
+      console.error("Error submitting form:", err);
       toast({
         title: "Submission failed",
         description: "Please try again or call us directly.",
@@ -109,10 +106,7 @@ await apiPost("https://tnt-leads-backend.onrender.com/api/leads", {
       )}
     >
       <CardHeader>
-        <CardTitle
-          className="text-2xl font-bold"
-          style={{ color: "#224139" }}
-        >
+        <CardTitle className="text-2xl font-bold" style={{ color: "#224139" }}>
           Request Free Consultation
         </CardTitle>
         <CardDescription className="text-base text-gray-600">
@@ -210,9 +204,7 @@ await apiPost("https://tnt-leads-backend.onrender.com/api/leads", {
     </Card>
   );
 
-  if (variant === "compact") {
-    return FormCard;
-  }
+  if (variant === "compact") return FormCard;
 
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-gray-50 to-white">
@@ -220,10 +212,7 @@ await apiPost("https://tnt-leads-backend.onrender.com/api/leads", {
         <div className="max-w-5xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-14">
-            <h2
-              className="text-4xl md:text-5xl font-extrabold"
-              style={{ color: "#224139" }}
-            >
+            <h2 className="text-4xl md:text-5xl font-extrabold" style={{ color: "#224139" }}>
               Ready to Find Your Dream Property?
             </h2>
             <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
@@ -268,10 +257,7 @@ await apiPost("https://tnt-leads-backend.onrender.com/api/leads", {
               </Card>
 
               {/* Why Choose Us */}
-              <div
-                className="p-6 rounded-2xl text-white shadow-lg"
-                style={{ backgroundColor: "#224139" }}
-              >
+              <div className="p-6 rounded-2xl text-white shadow-lg" style={{ backgroundColor: "#224139" }}>
                 <h3 className="text-xl font-semibold mb-3">Why Choose T&T Realty?</h3>
                 <ul className="space-y-2 text-sm">
                   <li>✓ 10+ Years of Experience</li>
