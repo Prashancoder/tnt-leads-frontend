@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import Associations from '@/components/Associations';  // ✅ Import new component
 import { Sheet, SheetContent } from '@/components/ui/sheet';
 import Projects from '@/components/Projects';
+import WhyChoose from '@/components/WhyChoose';
 
 
 const Index = () => {
@@ -38,13 +39,15 @@ const Index = () => {
       <Header />
       <Hero />
       <About />
+            <Projects />   {/* ✅ New Projects Section */}
       <Services />
       <Associations />
-      <Projects />   {/* ✅ New Projects Section */}
+            <WhyChoose />   {/* ✅ Yeh ab alag component aa gaya */}
+
       <LeadForm />
       {/* Transparent side sheet lead form */}
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetContent side="right" className="w-full sm:max-w-md bg-background/80 backdrop-blur-md border-white/20">
+        <SheetContent side="right" className="w-full sm:max-w-md bg-background/20 backdrop-blur-md border-white/20">
           <LeadForm variant="compact" transparent onSubmitted={() => setOpen(false)} />
         </SheetContent>
       </Sheet>
