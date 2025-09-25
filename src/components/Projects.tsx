@@ -60,7 +60,6 @@ const projects: Project[] = [
   },
 ];
 
-
 const Projects = () => {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -70,44 +69,54 @@ const Projects = () => {
   };
 
   return (
-    <section className="py-16 bg-green-50" id="projects">
+    <section className="py-16 bg-gray-50" id="projects">
+      
+{/* Stylish title with full-width underline */}
+<div className="w-full py-3 mb-12 text-center">
+  <h2 className="text-3xl md:text-4xl font-semibold text-black tracking-widest font-serif inline-block relative">
+    Our Projects
+    <span className="block h-1 w-full bg-gray-800 mt-2 rounded-full"></span>
+  </h2>
+</div>
+
+
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-green-900 text-center mb-12 tracking-wide">
-          Our Projects
-        </h2>
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {projects.map((project) => (
             <Card
               key={project.id}
-              className="shadow-xl rounded-lg hover:scale-105 transition-transform duration-300 flex flex-col bg-white"
+              className="group shadow-xl rounded-xl hover:scale-105 hover:shadow-3xl transition-transform duration-300 flex flex-col bg-white"
             >
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-92 object-cover rounded-t-md"
+                className="w-full h-92 object-cover rounded-t-xl transition-all duration-300 border-2 border-transparent"
               />
               <CardContent className="flex flex-col flex-grow justify-between p-5">
                 <div>
                   <CardHeader className="p-0 mb-3">
-                    <CardTitle className="text-xl font-bold text-green-900">
+                    <CardTitle className="text-xl font-bold text-black">
                       {project.title}
                     </CardTitle>
                   </CardHeader>
-                  <p className="text-green-700 text-sm mb-3">
+                  <p className="text-gray-700 text-sm mb-3">
                     {project.description}
                   </p>
                   {/* Property Details */}
-                  <div className="text-xs text-gray-600 space-y-1">
-                    <p><span className="font-semibold text-green-800">Price:</span> {project.price}</p>
-                    <p><span className="font-semibold text-green-800">Location:</span> {project.location}</p>
-                    <p><span className="font-semibold text-green-800">Size:</span> {project.size}</p>
+                  <div className="text-xs text-gray-800 space-y-1">
+                    <p><span className="font-semibold text-black">Price:</span> {project.price}</p>
+                    <p><span className="font-semibold text-black">Location:</span> {project.location}</p>
+                    <p><span className="font-semibold text-black">Size:</span> {project.size}</p>
+                    <p><span className="font-semibold text-black">Status:</span> {project.status}</p>
                   </div>
                 </div>
                 <Button
                   onClick={() => scrollToSection('contact')}
-                  className="mt-5 w-full bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold tracking-wide py-2 rounded-md shadow-md hover:shadow-lg hover:from-green-700 hover:to-emerald-600 transition-all duration-300"
+                  className="mt-5 w-full bg-black text-white font-semibold tracking-wide py-4 text-lg rounded-md shadow-md hover:bg-[#FCBD01] hover:text-black transition-all duration-300"
                 >
-                  ✨ Book a Site Visit
+                  Book a Site Visit  
                 </Button>
               </CardContent>
             </Card>
