@@ -100,29 +100,30 @@ const Services = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="bg-gradient-to-r from-primary to-secondary p-10 md:p-16 rounded-3xl text-center text-white mb-20 shadow-xl"
-        >
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Invest in Your Future?
-          </h3>
-          <p className="text-lg mb-6 max-w-2xl mx-auto opacity-90">
-            Let our expert team guide you to the perfect property investment. 
-            Get personalized recommendations based on your budget and goals.
-          </p>
-          <Button 
-            size="lg"
-            onClick={scrollToContact}
-            className="bg-white text-primary hover:bg-gray-100 font-semibold transition-smooth"
-          >
-            Schedule Free Consultation
-            <ArrowRight className="ml-2" size={20} />
-          </Button>
-        </motion.div>
+<motion.div 
+  initial={{ opacity: 0, scale: 0.95 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.5 }}
+  className="p-10 md:p-16 rounded-3xl text-center text-black mb-20 shadow-xl bg-[radial-gradient(circle_at_center,_#FBE03F,_#F68C1E_80%)]"
+>
+  <h3 className="text-3xl md:text-4xl font-bold mb-4">
+    Ready to Invest in Your Future?
+  </h3>
+  <p className="text-lg mb-6 max-w-2xl mx-auto">
+    Let our expert team guide you to the perfect property investment. 
+    Get personalized recommendations based on your budget and goals.
+  </p>
+  <Button 
+    size="lg"
+    onClick={scrollToContact}
+    className="bg-black text-white hover:bg-gray-800 font-semibold transition-all"
+  >
+Request a Callback
+    <ArrowRight className="ml-2" size={20} />
+  </Button>
+</motion.div>
+
+
 
         {/* Our Associations */}
 
