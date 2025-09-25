@@ -1,6 +1,7 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'; 
 import { ArrowRight, Star, Users, Building, TrendingUp } from 'lucide-react';
-import heroBg from '@/assets/hero-bg.jpg';
+import heroBg from '@/assets/q.png';
+import heroBgMobile from '@/assets/ww.png'; // 👈 mobile ke liye alag image import
 import LeadForm from '@/components/LeadForm';
 
 const Hero = () => {
@@ -15,11 +16,28 @@ const Hero = () => {
   };
 
   return (
-    <section 
-      id="home" 
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center"
-      style={{ backgroundImage: `url(${heroBg})` }}
-    >
+<section 
+  id="home" 
+  className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center pt-20 md:pt-0"
+>
+
+      {/* Desktop Background */}
+      <div 
+        className="hidden md:block absolute inset-0 bg-cover bg-center" 
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+
+{/* Mobile Background */}
+<div
+  className="block md:hidden absolute inset-0 bg-no-repeat bg-center"
+  style={{
+    backgroundImage: `url(${heroBgMobile})`,
+    backgroundSize: 'contain',
+    backgroundPosition: 'center top',
+  }}
+/>
+
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60"></div>
       
@@ -29,14 +47,6 @@ const Hero = () => {
           
           {/* Left side content */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="flex items-center">
-                {[...Array()].map((_, i) => (
-                  <Star key={i} size={20} className="text-secondary fill-secondary" />
-                ))}
-              </div>
-            </div>
-
             <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
               Best Real Estate Company in{' '}
               <span className="text-secondary">Gurgaon</span>
@@ -53,7 +63,7 @@ const Hero = () => {
                 onClick={scrollToContact}
                 className="bg-secondary text-secondary-foreground hover:bg-secondary-light transition-smooth text-lg px-8 py-6"
               >
-                Get Free Consultation
+Request a Callback
                 <ArrowRight className="ml-2" size={20} />
               </Button>
 
