@@ -60,9 +60,10 @@ const Associations = () => {
         <p className="uppercase tracking-widest text-sm text-primary font-semibold">
           Trusted Partnerships
         </p>
-        <h3 className="text-3xl md:text-5xl font-extrabold text-gray-800 mt-3">
-          Our <span className="text-primary">Developer Associations</span>
-        </h3>
+<h3 className="text-3xl md:text-5xl font-extrabold text-black mt-3">
+  Our Developer Associations
+</h3>
+
         <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />
         <p className="text-lg md:text-xl text-gray-600 mt-5 max-w-2xl mx-auto">
           We collaborate with India’s top real estate developers to deliver{" "}
