@@ -98,7 +98,7 @@ const LeadForm = ({
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const FormCard = (
+const FormCard = (
     <Card
       className={cn(
         "rounded-2xl shadow-xl border bg-white/80 backdrop-blur-xl transition hover:shadow-2xl",
@@ -106,8 +106,8 @@ const LeadForm = ({
       )}
     >
       <CardHeader>
-        <CardTitle className="text-2xl font-bold" style={{ color: "#224139" }}>
-          Request Free Consultation
+        <CardTitle className="text-2xl font-bold" style={{ color: "#000000" }}>
+          Request a Callback
         </CardTitle>
         <CardDescription className="text-base text-gray-600">
           Fill out the form below and our team will reach out within 24 hours 🚀
@@ -128,7 +128,7 @@ const LeadForm = ({
               onChange={(e) => handleChange("name", e.target.value)}
               placeholder="John Doe"
               required
-              className="mt-2 rounded-lg focus:ring-2 focus:ring-[#224139]/60 transition"
+              className="mt-2 rounded-lg focus:ring-2 focus:ring-black/60 transition"
             />
           </div>
 
@@ -144,7 +144,7 @@ const LeadForm = ({
               value={formData.email}
               onChange={(e) => handleChange("email", e.target.value)}
               placeholder="your@email.com"
-              className="mt-2 rounded-lg focus:ring-2 focus:ring-[#224139]/60 transition"
+              className="mt-2 rounded-lg focus:ring-2 focus:ring-black/60 transition"
             />
           </div>
 
@@ -161,7 +161,7 @@ const LeadForm = ({
               onChange={(e) => handleChange("phone", e.target.value)}
               placeholder="+91 9876543210"
               required
-              className="mt-2 rounded-lg focus:ring-2 focus:ring-[#224139]/60 transition"
+              className="mt-2 rounded-lg focus:ring-2 focus:ring-black/60 transition"
             />
           </div>
 
@@ -177,7 +177,7 @@ const LeadForm = ({
               onChange={(e) => handleChange("message", e.target.value)}
               placeholder="Budget, location preference, property type..."
               rows={4}
-              className="mt-2 rounded-lg focus:ring-2 focus:ring-[#224139]/60 transition"
+              className="mt-2 rounded-lg focus:ring-2 focus:ring-black/60 transition"
             />
           </div>
 
@@ -186,7 +186,7 @@ const LeadForm = ({
             type="submit"
             disabled={isSubmitting}
             className="w-full py-3 text-lg font-semibold rounded-lg text-white hover:opacity-90 transition relative overflow-hidden"
-            style={{ backgroundColor: "#224139" }}
+            style={{ backgroundColor: "#000000" }}
           >
             <span className="relative z-10">
               {isSubmitting ? "Submitting..." : "✨ Send My Request"}
@@ -194,11 +194,6 @@ const LeadForm = ({
             <div className="absolute inset-0 bg-white/20 blur-md opacity-30 animate-pulse"></div>
           </Button>
 
-          <p className="text-xs text-center text-gray-500 mt-2">
-            By submitting this form, you agree to our{" "}
-            <span className="underline">Privacy Policy</span> &{" "}
-            <span className="underline">Terms</span>.
-          </p>
         </form>
       </CardContent>
     </Card>
@@ -212,7 +207,7 @@ const LeadForm = ({
         <div className="max-w-5xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-14">
-            <h2 className="text-4xl md:text-5xl font-extrabold" style={{ color: "#224139" }}>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-black">
               Ready to Find Your Dream Property?
             </h2>
             <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
@@ -233,21 +228,21 @@ const LeadForm = ({
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <Phone className="text-[#224139]" size={20} />
+                    <Phone className="text-black" size={20} />
                     <div>
                       <div className="font-semibold">Call Us Now</div>
                       <div className="text-gray-600">+91 8088113333</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Mail className="text-[#224139]" size={20} />
+                    <Mail className="text-black" size={20} />
                     <div>
                       <div className="font-semibold">Email Us</div>
                       <div className="text-gray-600">info@tandtrealty.in</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="text-[#224139] mt-1" size={20} />
+                    <CheckCircle className="text-black mt-1" size={20} />
                     <div>
                       <div className="font-semibold">HARERA Registered</div>
                       <div className="text-gray-600">Reg No: /Ext1/2023/222</div>
@@ -257,7 +252,7 @@ const LeadForm = ({
               </Card>
 
               {/* Why Choose Us */}
-              <div className="p-6 rounded-2xl text-white shadow-lg" style={{ backgroundColor: "#224139" }}>
+              <div className="p-6 rounded-2xl text-white shadow-lg" style={{ backgroundColor: "#00060eff" }}>
                 <h3 className="text-xl font-semibold mb-3">Why Choose T&T Realty?</h3>
                 <ul className="space-y-2 text-sm">
                   <li>✓ 10+ Years of Experience</li>
